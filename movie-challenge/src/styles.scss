@@ -1,2 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-@import url("./app/components/header/header.component.scss");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+/*$header-footer-color: #164863;*/

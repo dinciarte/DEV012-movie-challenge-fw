@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  movies: any[] = [];
+
+  constructor(private homeService: ApiService) {}
 
   ngOnInit(): void {
+    this.homeService.getMovies().subscribe(
+      (data) => {
+        this.movies = data.results;
+      },
+      (error) => {
+        console.error('Error when trying to get movies', error);
+      }
+    );
   }
 
 }
