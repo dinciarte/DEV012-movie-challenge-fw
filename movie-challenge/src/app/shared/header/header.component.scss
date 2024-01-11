@@ -1,14 +1,29 @@
-@import '../../../variables.scss';
+@import "../../../variables.scss";
 
 header {
-    height: 15vh;
-    background-color: $color-one;
-    color: $color-zero;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    font-family: $font-one;
-    font-size: 1.6rem;
-
+  height: 15vh;
+  background-color: $color-one;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
+h1 {
+  font-family: $font-one;
+  font-size: 3rem;
+}
+
+a {
+  color: $color-zero;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-three;
+  }
+  &:link {
+    color: $color-four;
+  }
+  &:active {
+    color: $color-two;
+  }
+}
