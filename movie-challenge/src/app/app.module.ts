@@ -10,6 +10,8 @@ import { HomeComponent } from './views/home/home.component';
 import { ErrorComponent } from './views/error/error.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { CardsComponent } from './components/cards/cards.component';
+import { ApiService } from './services/api.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,14 +21,16 @@ import { CardsComponent } from './components/cards/cards.component';
     HomeComponent,
     ErrorComponent,
     MoviesComponent,
-    CardsComponent
+    CardsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

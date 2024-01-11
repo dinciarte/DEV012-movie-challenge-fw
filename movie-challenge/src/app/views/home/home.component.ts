@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
   constructor(private homeService: ApiService) {}
 
   ngOnInit(): void {
+    console.log("holi");
+    
     this.homeService.getMovies().subscribe(
       (data) => {
         this.movies = data.results;
