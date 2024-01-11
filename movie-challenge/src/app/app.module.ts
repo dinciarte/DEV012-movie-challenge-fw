@@ -8,7 +8,6 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './views/home/home.component';
 import { ErrorComponent } from './views/error/error.component';
-import { MoviesComponent } from './components/movies/movies.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { ApiService } from './services/api.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,7 +19,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FooterComponent,
     HomeComponent,
     ErrorComponent,
-    MoviesComponent,
     CardsComponent,
   ],
   imports: [
