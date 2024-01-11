@@ -1,12 +1,32 @@
-@import '../../../variables.scss';
+@import "../../../variables.scss";
 
-footer{
-    height: 8vh;
-    background-color: $color-one;
-    color:$color-zero;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-family: $font-two;
+footer {
+  height: 8vh;
+  background-color: $color-one;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
+
+p {
+  color: $color-zero;
+  font-family: $font-two;
+  font-size: 1.5rem;
+}
+a{
+  color: $color-zero;
+  text-decoration: none;
+
+
+  &:hover{
+        color: $color-three;
+    }
+    &:link {
+        color: $color-four;
+    }
+    &:active {
+        color: $color-two;
+    }
+}
+    
