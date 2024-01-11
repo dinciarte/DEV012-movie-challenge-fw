@@ -1,12 +1,14 @@
+@import '../../../variables.scss';
 
 header {
     height: 15vh;
-    width: 98vw;
-    background-color: #164863;
-    color: #FFFFFF;
+    background-color: $color-one;
+    color: $color-zero;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    font-family: $font-one;
+    font-size: 1.6rem;
 
 }
 

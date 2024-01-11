@@ -1,10 +1,12 @@
+@import '../../../variables.scss';
+
 footer{
     height: 8vh;
-    width: 98vw;
-    background-color: #164863;
-    color: #FFFFFF;
+    background-color: $color-one;
+    color:$color-zero;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
+    font-family: $font-two;
 }
