@@ -12,3 +12,21 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// .mat-paginator-outer-container{
+
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+
+// }
+  .mat-paginator-container {
+    background-color: $color-two;
+    color: $color-zero;
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    padding: 0 8px;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+}

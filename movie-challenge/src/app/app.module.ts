@@ -11,7 +11,8 @@ import { ErrorComponent } from './views/error/error.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { ApiService } from './services/api.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatPaginatorModule } from '@angular/material/paginator'
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { FilterComponent } from './components/filter/filter.component'
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MatPaginatorModule } from '@angular/material/paginator'
     HomeComponent,
     ErrorComponent,
     CardsComponent,
+    FilterComponent,
   ],
   imports: [
     MatPaginatorModule,
