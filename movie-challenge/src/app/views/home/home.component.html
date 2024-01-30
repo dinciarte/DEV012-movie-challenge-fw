@@ -1,4 +1,5 @@
 <main>
+  <app-filter (moviesFiltered)="loadMovies()"></app-filter>
   <app-cards [movies]="movies"></app-cards>
   <mat-paginator
     [length]="500"

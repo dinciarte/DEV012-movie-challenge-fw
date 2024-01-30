@@ -13,6 +13,10 @@ import { ApiService } from './services/api.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FilterComponent } from './components/filter/filter.component'
+import { ReactiveFormsModule } from '@angular/forms';
+import { ComponentsComponent } from './sort/components/components.component';
+import { SortComponent } from './components/sort/sort.component';
+
 
 @NgModule({
   declarations: [
@@ -23,6 +27,8 @@ import { FilterComponent } from './components/filter/filter.component'
     ErrorComponent,
     CardsComponent,
     FilterComponent,
+    ComponentsComponent,
+    SortComponent,
   ],
   imports: [
     MatPaginatorModule,
@@ -30,6 +36,7 @@ import { FilterComponent } from './components/filter/filter.component'
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
