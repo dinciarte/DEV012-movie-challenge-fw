@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FilterComponent } from './components/filter/filter.component'
 import { ReactiveFormsModule } from '@angular/forms';
+import { ComponentsComponent } from './sort/components/components.component';
+import { SortComponent } from './components/sort/sort.component';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ErrorComponent,
     CardsComponent,
     FilterComponent,
+    ComponentsComponent,
+    SortComponent,
   ],
   imports: [
     MatPaginatorModule,
