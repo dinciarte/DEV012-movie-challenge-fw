@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Movie } from 'src/app/interface/interface';
 
 @Component({
   selector: 'app-cards',
@@ -9,6 +10,6 @@ export class CardsComponent implements OnInit {
 
   ngOnInit(): void {};
 
-  @Input() movies: any[] = [];
+  @Input() movies: Movie[] = [];
   
 }
