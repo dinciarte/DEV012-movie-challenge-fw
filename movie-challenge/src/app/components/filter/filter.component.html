@@ -1,13 +1,13 @@
 <form [formGroup]="formMovies">
-  <select formControlName="genreValue" (change)="onGenreSelectionChange()">
-    <option value="" disabled>Choose a Genre</option>
+  <select class="filter" formControlName="genreValue" (change)="onGenreSelectionChange()">
+    <option value="" disabled selected>Choose a Genre</option>
     <option *ngFor="let genre of genresArray" [value]="genre.id">
       {{ genre.name }}
     </option>
   </select>
-    <!-- <label for="year"></label>
-    <select name="year" id="year">
-      <option disabled selected value="">Nominations by Year</option>
-      <option selected value="28">ACTION</option>
-    </select> -->
+   
+    <select class="sort" name="year" id="year">
+      <option disabled selected value="">Sort by type</option>
+      <option selected value=""></option>
+    </select>
 </form>

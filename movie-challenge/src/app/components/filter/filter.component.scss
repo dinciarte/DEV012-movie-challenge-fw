@@ -1,4 +1,23 @@
-nav {
-    height: 40px;
+@import "../../../variables.scss";
+
+form {
+    height: 50px;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    background-color: $color-two;
+}
+
+.filter, .sort {
+    width: 130px;
+    height: 30px;
+    background-color: $color-zero;
+    border: none;
+    box-shadow: 10px;
+}
+
+option {
+    font-family: $font-one;
+
 }

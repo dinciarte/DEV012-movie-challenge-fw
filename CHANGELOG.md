@@ -44,3 +44,24 @@ No hay bugs encontrados de momento.
 ### Removed
 
 Se elimina componente Movies.ts, Movies.html, Movies.scss y Movies.spec.ts ya que no estaban cumpliendo con la función originalmente prevista.
+
+## <1.3.0> - <24-1-31>
+
+## Sprint learnings
+Aprendí a cómo almacenar estados globales en angular, mejor entendimiento de los outputs y la optimización de código para las peticiones.
+
+### Added
+
+Se añadió el componente de filtrado, todos los módulos que denpenden de él, un servicio para el almacenado de estados globales.
+
+### Changed
+
+Se cambia el archivo de api.service para que contenga la petición del filtrado también. 
+
+### Fixed
+
+No hay bugs encontrados de momento.
+
+### Removed
+
+Sin archivos eliminados de momento.
