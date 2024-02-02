@@ -1,8 +1,8 @@
 <main>
-  <app-filter (moviesFiltered)="loadMovies()"></app-filter>
+  <app-filter [resetFunction]="resetUrl" (moviesFiltered)="loadMovies($event)"></app-filter>
   <app-cards [movies]="movies"></app-cards>
   <mat-paginator
-    [length]="500"
+    [length]="2000"
     [pageSize]="20"
     [pageSizeOptions]="[20]"
     [pageIndex]="currentPage"

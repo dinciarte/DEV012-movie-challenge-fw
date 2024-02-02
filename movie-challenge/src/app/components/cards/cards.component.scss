@@ -1,6 +1,6 @@
 @import "../../../variables.scss";
 
-li {
+.cards__list_container {
   padding: 60px 0px;
   background-color: $color-four;
   display: flex;
@@ -10,13 +10,9 @@ li {
   gap: 40px;
 }
 
-div {
+.cards__container {
   width: 250px;
   height: 480px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
   background-color: $color-two;
   color: $color-zero;
   border-radius: 10px;
@@ -29,18 +25,32 @@ div {
   }
 }
 
-img {
+
+.cards__anchor_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  color: $color-zero;
+  &:active,:visited,:link,:hover{
+    color: $color-zero;
+  }
+}
+
+.cards__image {
   width: 250px;
   height: 380px;
   border-radius: 10px 10px 0px 0px;
 }
 
-h2 {
+.cards__title {
   font-family: $font-one;
   font-size: 1.5rem;
   text-align: center;
 }
 
-p {
+.cards__date {
   font-family: $font-two;
+  margin-top: -15px;
 }
