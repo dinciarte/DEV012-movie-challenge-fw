@@ -14,9 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FilterComponent } from './components/filter/filter.component'
 import { ReactiveFormsModule } from '@angular/forms';
-import { ComponentsComponent } from './sort/components/components.component';
-import { SortComponent } from './components/sort/sort.component';
-
+import { DetailsComponent } from './views/details/details.component';
+import { MovieLinkService } from './services/movie-link.service';
 
 @NgModule({
   declarations: [
@@ -27,8 +26,7 @@ import { SortComponent } from './components/sort/sort.component';
     ErrorComponent,
     CardsComponent,
     FilterComponent,
-    ComponentsComponent,
-    SortComponent,
+    DetailsComponent,
   ],
   imports: [
     MatPaginatorModule,
@@ -38,7 +36,7 @@ import { SortComponent } from './components/sort/sort.component';
     BrowserAnimationsModule,
     ReactiveFormsModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, MovieLinkService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

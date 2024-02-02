@@ -6,6 +6,6 @@ import { MatPaginatorIntl } from '@angular/material/paginator';
 })
 export class PaginatorService extends MatPaginatorIntl {
   override getRangeLabel = (page: number, pageSize: number, length: number) => {
-    return `Page ${page + 1} of ${Math.ceil(length / pageSize)}`;
+    return `Page ${page + 1} of ${Math.ceil(length/pageSize)}`;
   };
 }

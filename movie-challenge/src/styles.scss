@@ -6,20 +6,14 @@
   padding: 0;
 }
 
-
-
-/*$header-footer-color: #164863;*/
-
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-// .mat-paginator-outer-container{
 
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
+html {
+  scroll-behavior: smooth;
+}
 
-// }
   .mat-paginator-container {
     background-color: $color-two;
     color: $color-zero;

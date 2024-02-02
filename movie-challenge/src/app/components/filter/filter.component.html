@@ -6,8 +6,11 @@
     </option>
   </select>
    
-    <select class="sort" name="year" id="year">
-      <option disabled selected value="">Sort by type</option>
-      <option selected value=""></option>
-    </select>
+  <select class="sort" formControlName="sortValue" (change)="onGenreSelectionChange()">
+    <option disabled selected value="">Sort by type</option>
+    <option *ngFor="let sortOption of sortingArray" [value]="sortOption.value">
+      {{ sortOption.label }}
+    </option>
+  </select>
+  <button (click)="resetFilters()">Restablecer Filtros</button>
 </form>

@@ -25,6 +25,7 @@ export interface Movie {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  routeLink?: string;
 }
 
 export enum OriginalLanguage {
@@ -35,6 +36,6 @@ export enum OriginalLanguage {
 
 export interface MoviesSearchParams {
   page?: number;
-  genre?: number[] | null; // Hacer genre opcional
+  genre?: number[] | null;
   sort?: string;
 }
