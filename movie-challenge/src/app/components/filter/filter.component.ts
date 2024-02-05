@@ -6,42 +6,39 @@ import { StateService } from 'src/app/services/services.service';
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
-  styleUrls: ['./filter.component.scss']
+  styleUrls: ['./filter.component.scss'],
 })
-
 export class FilterComponent implements OnInit {
+  @Input() resetFunction: () => void = () => {};
 
-  @Input() resetFunction: (() => void) = () => {};
-  
-  @Output () moviesFiltered = new EventEmitter <number>();
-
+  @Output() moviesFiltered = new EventEmitter<number>();
 
   formMovies;
-  
+
   movieId = 0;
-  
+
   genresArray = [
-    { name: "Action", id: 28 },
-    { name: "Adventure", id: 12 },
-    { name: "Animation", id: 16 },
-    { name: "Comedy", id: 35 },
-    { name: "Crime", id: 80 },
-    { name: "Documentary", id: 99 },
-    { name: "Drama", id: 18 },
-    { name: "Family", id: 10751 },
-    { name: "Fantasy", id: 14 },
-    { name: "History", id: 36 },
-    { name: "Horror", id: 27 },
-    { name: "Music", id: 10402 },
-    { name: "Mystery", id: 9648 },
-    { name: "Romance", id: 10749 },
-    { name: "Science Fiction", id: 878 },
-    { name: "TV Movie", id: 10770 },
-    { name: "Thriller", id: 53 },
-    { name: "War", id: 10752 },
-    { name: "Western", id: 37 }
+    { name: 'Action', id: 28 },
+    { name: 'Adventure', id: 12 },
+    { name: 'Animation', id: 16 },
+    { name: 'Comedy', id: 35 },
+    { name: 'Crime', id: 80 },
+    { name: 'Documentary', id: 99 },
+    { name: 'Drama', id: 18 },
+    { name: 'Family', id: 10751 },
+    { name: 'Fantasy', id: 14 },
+    { name: 'History', id: 36 },
+    { name: 'Horror', id: 27 },
+    { name: 'Music', id: 10402 },
+    { name: 'Mystery', id: 9648 },
+    { name: 'Romance', id: 10749 },
+    { name: 'Science Fiction', id: 878 },
+    { name: 'TV Movie', id: 10770 },
+    { name: 'Thriller', id: 53 },
+    { name: 'War', id: 10752 },
+    { name: 'Western', id: 37 },
   ];
-  
+
   sortingArray = [
     { label: 'Popularity Ascending', value: 'popularity.asc' },
     { label: 'Popularity Descending', value: 'popularity.desc' },
@@ -59,12 +56,11 @@ export class FilterComponent implements OnInit {
   ) {
     this.formMovies = this.formBuilder.group({
       genreValue: new FormControl(),
-      sortValue: new FormControl()
+      sortValue: new FormControl(),
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onGenreSelectionChange() {
     this.movieId = Number(this.formMovies.controls.genreValue.value);

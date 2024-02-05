@@ -1,72 +1,101 @@
-@import '../../../variables.scss';
+@import "../../../variables.scss";
 
 .details__main {
-    height: 77vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: $color-zero;
+  height: 77vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-zero;
 }
 
 .details__button {
-    height: 50px;
-    width: 120px;
+  height: 50px;
+  width: 120px;
+  background-color: $color-two;
+  position: relative;
+  top: -260px;
+  right: 150px;
+  border: none;
+  border-radius: 10px;
+  color: $color-zero;
+  font-family: $font-one;
+  box-shadow: 0px 0px 10px 5px rgba(22, 72, 99, 1);
+
+  &:hover {
+    background-color: $color-three;
+  }
+  &:link {
+    background-color: $color-four;
+  }
+  &:active {
     background-color: $color-two;
-    position: relative;
-    top: -200px;
-    right: 50px;
-    border: none;
-    border-radius: 10px;
-    color: $color-zero;
-    font-family: $font-one;
-    box-shadow: 0px 0px 10px 5px rgba(22,72,99,1);
-
-    &:hover{
-        background-color: $color-three;
-    }
-    &:link {
-        background-color: $color-four;
-    }
-    &:active {
-        background-color: $color-two;
-    }
-
+  }
 }
 
 .details__section {
+  background-color: $color-two;
+  width: 60%;
+  height: 75%;
+  font-family: $font-one;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 10px 5px rgba(22, 72, 99, 1);
+  text-shadow: 2px 1px 0px rgba(113, 103, 103, 0.75);
+  border-radius: 10px;
+}
 
-    background-color: $color-three;
-    width: 60%;
-    height: 75%;
-    font-family: $font-one;
+.details__div-img {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details__div-details {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.details__img {
+  width: 250px;
+  height: 380px;
+  border-radius: 10px;
+}
+
+.details__movie-title,
+.details__movie-year,
+.details__movie-genre,
+.details__movie-overview,
+.details__movie-overview-text {
+  width: 80%;
+  margin-top: -5px;
+}
+
+.details__movie-title { 
+    font-size: 2.5rem;
+    line-height: 1.1;
+}
+
+.details__movie-overview-text {
+    font-size: 1.1rem;
+    line-height: 1.1;
+    font-family: $font-two;
+}
+
+
+
+
+.details__fetched-data {
     color: $color-zero;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-shadow: 2px 1px 0px rgba(113,103,103,0.75);
-}
-
-.details__div-img{
-    width: 45%;
-    height: 100%;
 
 }
-
-.details__div-details{
-
-    width: 55%;
-    height: 100%;
+.details__static-text {
+  color: $color-two;
 }
-
-.details__img {}
-
-.details__movie-title {}
-
-.details__movie-year {}
-
-.details__movie-genre {}
-
-.details__movie-overview {}
-
-.details__movie-overview-text {}
