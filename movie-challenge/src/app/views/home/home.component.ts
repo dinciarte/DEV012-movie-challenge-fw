@@ -119,5 +119,18 @@ export class HomeComponent implements OnInit {
     this.movieLinkService.navigateToMovieDetails(movieId);
   }
 
+  resetFilters() {
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {},
+      queryParamsHandling: 'merge',
+    });
+  
+    this.filteredGenre = null;
+    this.currentPage = 0;
+  
+    this.loadMovies();
+  }
+
 }
 

@@ -10,6 +10,7 @@ import { StateService } from 'src/app/services/services.service';
 })
 export class FilterComponent implements OnInit {
   @Input() resetFunction: () => void = () => {};
+  @Output() resetFiltersEvent = new EventEmitter<void>();
 
   @Output() moviesFiltered = new EventEmitter<number>();
 
@@ -83,8 +84,7 @@ export class FilterComponent implements OnInit {
     this.formMovies.controls.genreValue.setValue(null);
     this.formMovies.controls.sortValue.setValue(null);
 
-    if (this.resetFunction) {
-      this.resetFunction();
-    }
+    this.resetFiltersEvent.emit();
   }
 }
+

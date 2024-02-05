@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class DetailsComponent implements OnInit {
   movieId: string;
   movieDetails: any = {};
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService, private router: Router ) {
+  constructor(private route: ActivatedRoute, private apiService: ApiService, private location: Location ) {
     this.movieId = ''
    }
 
@@ -44,7 +45,7 @@ export class DetailsComponent implements OnInit {
 }
 
 backToMovies(): void {
-  this.router.navigate(['../'], { relativeTo: this.route});
+  this.location.back();
 }
 
 
