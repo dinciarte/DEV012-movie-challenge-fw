@@ -1,6 +1,6 @@
 @import "../../../variables.scss";
 
-form {
+.filter__container {
     height: 50px;
     display: flex;
     align-items: center;
@@ -9,12 +9,36 @@ form {
     background-color: $color-two;
 }
 
-.filter, .sort {
+.filter__filter-options, .filter__sort-options {
     width: 130px;
     height: 30px;
+    font-family: $font-one;
+    text-align: center;
     background-color: $color-zero;
+    color: $color-one;
     border: none;
     box-shadow: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    &:active, &::backdrop{
+        border: none;
+    }
+}
+
+.filter__button {
+    width: 130px;
+    height: 30px;
+    font-family: $font-one;
+    text-align: center;
+    background-color: $color-one;
+    color: $color-zero;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    &:hover{
+        background-color: $color-three;
+        color: $color-one;
+    }
 }
 
 option {

@@ -1,16 +1,16 @@
-<form [formGroup]="formMovies">
-  <select class="filter" formControlName="genreValue" (change)="onGenreSelectionChange()">
-    <option value="" disabled selected>Choose a Genre</option>
+<form class="filter__container" [formGroup]="formMovies">
+  <select class="filter__filter-options" formControlName="genreValue" (change)="onGenreSelectionChange()">
+    <option [ngValue]="null">Choose a Genre</option>
     <option *ngFor="let genre of genresArray" [value]="genre.id">
       {{ genre.name }}
     </option>
   </select>
    
-  <select class="sort" formControlName="sortValue" (change)="onGenreSelectionChange()">
-    <option disabled selected value="">Sort by type</option>
+  <select class="filter__sort-options" formControlName="sortValue" (change)="onGenreSelectionChange()">
+    <option [ngValue]="null">Sort by type</option>
     <option *ngFor="let sortOption of sortingArray" [value]="sortOption.value">
       {{ sortOption.label }}
     </option>
   </select>
-  <button (click)="resetFilters()">Restablecer Filtros</button>
+  <button class="filter__button" (click)="resetFilters()">Restablecer Filtros</button>
 </form>

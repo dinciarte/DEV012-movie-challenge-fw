@@ -1,15 +1,15 @@
 <main class="details__main">
-    <button class="details__button">Back to Movies</button>
+    <button class="details__button" (click)="backToMovies()">Back to Movies</button>
     <section class="details__section">
-        <div class="details__div-img">
-            <img class="details__img" src="" alt="">
-        </div>
-        <div class="details__div-details">
-            <h1 class="details__movie-title"></h1>
-            <h2 class="details__movie-year"></h2>
-            <h2 class="details__movie-genre"></h2>
-            <h2 class="details__movie-overview"></h2>
-            <p class="details__movie-overview-text"></p>
-        </div>
+      <div class="details__div-img">
+        <img class="details__img" src="https://image.tmdb.org/t/p/w500{{ movieDetails.poster_path }}" alt="{{ movieDetails.title }}">
+      </div>
+      <div class="details__div-details"  [ngClass]="{'details__fetched-data': movieDetails}"> 
+        <h1 class="details__movie-title" [ngClass]="{'details__static-text': !movieDetails}">Title: {{ movieDetails.title }}</h1>
+        <h2 class="details__movie-year" [ngClass]="{'details__static-text': !movieDetails}">Release Date: {{ movieDetails.release_date }}</h2>
+        <h2 class="details__movie-genre" [ngClass]="{'details__static-text': !movieDetails}">Genres: {{ movieDetails.genres?.join(', ') }}</h2>
+        <h2 class="details__movie-overview" [ngClass]="{'details__static-text': !movieDetails}">Overview:</h2>
+        <p class="details__movie-overview-text" [ngClass]="{'details__static-text': !movieDetails}">{{ movieDetails.overview }}</p>
+      </div>
     </section>
-</main>
+  </main>
