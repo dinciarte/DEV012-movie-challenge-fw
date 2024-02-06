@@ -14,5 +14,9 @@ export class CardsComponent implements OnInit {
   ngOnInit(): void {};
 
   @Input() movies: Movie[] = [];
+
+  getImageUrl(posterPath: string | null): string {
+    return posterPath ? `https://image.tmdb.org/t/p/w500${posterPath}` : 'https://img.freepik.com/premium-psd/error-404-design-landing-page_540510-324.jpg?w=826';
+  }
   
 }

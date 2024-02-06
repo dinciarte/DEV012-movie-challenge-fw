@@ -127,6 +127,7 @@ export class HomeComponent implements OnInit {
     });
   
     this.filteredGenre = null;
+    this.sortingState = null;
     this.currentPage = 0;
   
     this.loadMovies();
