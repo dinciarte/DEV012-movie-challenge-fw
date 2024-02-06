@@ -64,27 +64,31 @@ export class FilterComponent implements OnInit {
   ngOnInit(): void {}
 
   onGenreSelectionChange() {
-    this.movieId = Number(this.formMovies.controls.genreValue.value);
-    const sortValue = this.formMovies.controls.sortValue.value;
-
-    this.moviesFiltered.emit(this.movieId);
-
-    this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: { genre: this.movieId, sort: sortValue },
-      queryParamsHandling: 'merge',
-    });
-
-    this.stateService.setFilteredGenre(this.movieId);
-    this.stateService.setSortingState(sortValue);
+    const genreValue = this.formMovies.controls.genreValue.value;
+  
+    if (genreValue !== null) {
+      this.movieId = Number(genreValue);
+      this.moviesFiltered.emit(this.movieId);
+      this.stateService.setFilteredGenre(this.movieId);
+    }
   }
-
+  
+  onSortSelectionChange() {
+    const sortValue = this.formMovies.controls.sortValue.value;
+  
+    if (sortValue !== null) {
+      this.stateService.setSortingState(sortValue);
+    }
+  }
+  
   resetFilters() {
     console.log('Reset filters button clicked!');
-    this.formMovies.controls.genreValue.setValue(null);
-    this.formMovies.controls.sortValue.setValue(null);
-
-    this.resetFiltersEvent.emit();
+  
+    if (this.formMovies.controls.genreValue.value !== null ||
+        this.formMovies.controls.sortValue.value !== null) {
+      this.formMovies.controls.genreValue.setValue(null);
+      this.formMovies.controls.sortValue.setValue(null);
+      this.resetFiltersEvent.emit();
+    }
   }
 }
-
