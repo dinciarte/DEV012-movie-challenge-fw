@@ -35,6 +35,9 @@ export class ApiService {
       httpParams = httpParams.set('with_genres', params.genre.toString());
     }
   
+
+    
+
     const url = `${this.MOVIE_URL}${this.API_KEY}`;
     return this.http.get<MoviesResponse>(url, { params: httpParams });
   }
