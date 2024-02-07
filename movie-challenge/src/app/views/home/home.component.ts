@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Movie, MoviesSearchParams } from 'src/app/interface/interface';
-import { PaginatorService } from 'src/app/services/paginator.service';
 import { ApiService } from 'src/app/services/api.service';
 import { StateService } from 'src/app/services/services.service';
 import { MovieLinkService } from 'src/app/services/movie-link.service';
+import { PageEvent } from '@angular/material/paginator';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [{provide: MatPaginatorIntl, useClass: PaginatorService}]
 })
 export class HomeComponent implements OnInit {
   currentPage = 0;
@@ -19,7 +18,6 @@ export class HomeComponent implements OnInit {
   filteredGenre: number | null = null;
   movies: Movie[] = [];
   sortingState: string | null = null; 
-  
 
   constructor(
     private movieApi: ApiService,
@@ -54,10 +52,6 @@ export class HomeComponent implements OnInit {
 
       this.loadMovies();
     });
-
-    this.stateService.resetFilters$.subscribe(() => {
-      // this.resetUrl();
-    });
   }
 
   loadMovies(filteredGenre?: number) {
@@ -73,7 +67,6 @@ export class HomeComponent implements OnInit {
 
     this.movieApi.getMovies(params).subscribe(
       (data) => {
-        console.log("holi2wi", data);
         this.movies = data.results;
         this.totalMovies = data.total_results;
 
@@ -90,27 +83,22 @@ export class HomeComponent implements OnInit {
 
   handlePageEvent(pageEvent: PageEvent) {
     const newPageIndex = pageEvent.pageIndex;
+    this.currentPage = newPageIndex;
+    this.updateUrlAndLoadMovies();
+  }
   
+  updateUrlAndLoadMovies() {
     this.router.navigate([], {
       relativeTo: this.route,
-      queryParams: { page: newPageIndex + 1, genre: this.filteredGenre },
+      queryParams: {
+        page: this.currentPage + 1,
+        genre: this.filteredGenre,
+        sort: this.sortingState
+      },
       queryParamsHandling: 'merge',
     });
   
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  
-    this.loadMovies();
-  }
-
-  resetUrl(): void {
-    this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: {},
-      queryParamsHandling: 'merge',
-    });
-  
-    this.filteredGenre = null;
-    this.currentPage = 0;
   
     this.loadMovies();
   }
@@ -132,6 +120,4 @@ export class HomeComponent implements OnInit {
   
     this.loadMovies();
   }
-
 }
-
