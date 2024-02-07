@@ -65,3 +65,26 @@ No hay bugs encontrados de momento.
 ### Removed
 
 Sin archivos eliminados de momento.
+
+
+## <2.0.0> - <24-2-7>
+
+## Sprint learnings
+
+Trabajando los módulos terminé de completar el proyecto. Aprendí un poco mejor cómo van interactuando la inyección de servicios así cómo ir manjeando los decoradores de input y output.
+
+### Added
+
+Se añade sección de vistas y la comunicación de los datos directamente para su renderizado.
+
+### Changed 
+
+Se cambian archivos de filtros, views y sus respectivos archivos de lógica.
+
+### Fixed
+
+No hay bugs encontrados de momento.
+
+### Removed
+
+Sin archivos eliminados de momento.
