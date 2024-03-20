@@ -1,7 +1,11 @@
 <li class="cards__list_container">
   <div class="cards__container" *ngFor="let movie of movies">
     <a class="cards__anchor_container" [routerLink]="movieLinkService.buildMovieLink(movie.id)">
-      <img class="cards__image" src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}" />
+      <img class="cards__image" 
+           [src]="getImageUrl(movie.poster_path)" 
+           alt="{{ movie.title }}" 
+           [ngClass]="{'default-image': !movie.poster_path}"
+      />
       <h2 class="cards__title">{{ movie.title }}</h2>
       <p class="cards__date">{{ movie.release_date }}</p>
     </a>

@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { MoviesResponse, MoviesSearchParams, Movie } from '../interface/interface';
+import {
+  MoviesResponse,
+  MoviesSearchParams,
+  Movie,
+} from '../interface/interface';
+
 @Injectable({
   providedIn: 'root',
 })
-
 export class ApiService {
   private MOVIE_URL: string = 'https://api.themoviedb.org/3/discover/movie';
   private DETAILS_URL: string = 'https://api.themoviedb.org/3/movie';
@@ -18,18 +22,21 @@ export class ApiService {
       .set('include_adult', 'false')
       .set('include_video', 'false')
       .set('language', 'en-US');
-
+  
     if (params.page) {
       httpParams = httpParams.set('page', params.page.toString());
     }
-
-    if (params.genre && params.genre.length > 0) {
-      httpParams = httpParams.set('with_genres', params.genre.join(','));
-    }
-
+  
     if (params.sort) {
       httpParams = httpParams.set('sort_by', params.sort);
     }
+  
+    if (params.genre) {
+      httpParams = httpParams.set('with_genres', params.genre.toString());
+    }
+  
+
+    
 
     const url = `${this.MOVIE_URL}${this.API_KEY}`;
     return this.http.get<MoviesResponse>(url, { params: httpParams });

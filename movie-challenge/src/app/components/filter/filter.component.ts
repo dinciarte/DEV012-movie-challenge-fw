@@ -1,6 +1,6 @@
-import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { StateService } from 'src/app/services/services.service';
 
 @Component({
@@ -9,16 +9,12 @@ import { StateService } from 'src/app/services/services.service';
   styleUrls: ['./filter.component.scss'],
 })
 export class FilterComponent implements OnInit {
-  @Input() resetFunction: () => void = () => {};
-  @Output() resetFiltersEvent = new EventEmitter<void>();
-
+  @Output() filtersChanged = new EventEmitter<void>();
   @Output() moviesFiltered = new EventEmitter<number>();
 
   formMovies;
 
-  movieId = 0;
-
-  genresArray = [
+    genresArray = [
     { name: 'Action', id: 28 },
     { name: 'Adventure', id: 12 },
     { name: 'Animation', id: 16 },
@@ -52,7 +48,6 @@ export class FilterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute,
     private stateService: StateService
   ) {
     this.formMovies = this.formBuilder.group({
@@ -64,27 +59,39 @@ export class FilterComponent implements OnInit {
   ngOnInit(): void {}
 
   onGenreSelectionChange() {
-    this.movieId = Number(this.formMovies.controls.genreValue.value);
+    const genreValue = this.formMovies.controls.genreValue.value;
+
+    if (genreValue !== null) {
+      this.stateService.setFilteredGenre(Number(genreValue));
+      this.updateUrlAndNotify();
+    }
+  }
+
+  onSortSelectionChange() {
     const sortValue = this.formMovies.controls.sortValue.value;
 
-    this.moviesFiltered.emit(this.movieId);
+    if (sortValue !== null) {
+      this.stateService.setSortingState(sortValue);
+      this.updateUrlAndNotify();
+    }
+  }
+
+  updateUrlAndNotify() {
+    const queryParams = {
+      genre: this.formMovies.controls.genreValue.value,
+      sort: this.formMovies.controls.sortValue.value,
+    };
 
     this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: { genre: this.movieId, sort: sortValue },
+      queryParams,
       queryParamsHandling: 'merge',
     });
 
-    this.stateService.setFilteredGenre(this.movieId);
-    this.stateService.setSortingState(sortValue);
+    this.filtersChanged.emit();
   }
 
   resetFilters() {
-    console.log('Reset filters button clicked!');
-    this.formMovies.controls.genreValue.setValue(null);
-    this.formMovies.controls.sortValue.setValue(null);
-
-    this.resetFiltersEvent.emit();
+    this.formMovies.reset();
+    this.updateUrlAndNotify();
   }
 }
-
